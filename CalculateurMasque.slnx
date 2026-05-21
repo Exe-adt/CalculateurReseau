@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../CalculReseau/CalculReseau.csproj" Id="ebd1e62d-ab25-44d9-9177-e0452e765e9f" />
+  <Project Path="CalculateurMasque.csproj" />
+</Solution>
