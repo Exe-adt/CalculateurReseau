@@ -548,7 +548,6 @@ namespace CalculateurMasque
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculateur de Masque Réseau";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
