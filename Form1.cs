@@ -14,15 +14,6 @@ namespace CalculateurMasque
             InitializeComponent();
         }
 
-        // ============================================
-        // ÉVÉNEMENT : quand on tape dans une case IP
-        // → conversion binaire automatique
-        // ============================================
-        private void txtOct_TextChanged(object sender, EventArgs e)
-        {
-            ConvertirEnBinaire();
-        }
-
         private void ConvertirEnBinaire()
         {
             // Tableau des cases décimales et binaires
@@ -43,16 +34,20 @@ namespace CalculateurMasque
                 }
                 else
                 {
-                    // Valeur invalide → on colorie en rouge
+                    
                     octBin[i].Text = "????????";
                     octDec[i].BackColor = Color.LightCoral;
                 }
             }
         }
 
-        // ============================================
-        // ÉVÉNEMENT : clic sur le bouton Calcul
-        // ============================================
+        private void txtOct_TextChanged(object sender, EventArgs e)
+        {
+            ConvertirEnBinaire();
+        }
+
+
+        
         private void btnCalculer_Click(object sender, EventArgs e)
         {
             // 1. Validation de l'adresse IP
@@ -92,10 +87,10 @@ namespace CalculateurMasque
             else
             {
                 // L'utilisateur a saisi un masque standard
-                TextBox[] maskBoxes = { txtMask1, txtMask2, txtMask3, txtMask4 };
+                TextBox[] Mask = { txtMask1, txtMask2, txtMask3, txtMask4 };
                 for (int i = 0; i < 4; i++)
                 {
-                    if (!int.TryParse(maskBoxes[i].Text, out masque[i]) || masque[i] < 0 || masque[i] > 255)
+                    if (!int.TryParse(Mask[i].Text, out masque[i]) || masque[i] < 0 || masque[i] > 255)
                     {
                         MessageBox.Show("Le masque standard est invalide !",
                             "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -151,5 +146,6 @@ namespace CalculateurMasque
                 _ => Color.LightCoral
             };
         }
+
     }
 }
