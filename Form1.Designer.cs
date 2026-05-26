@@ -3,7 +3,7 @@
 namespace CalculateurMasque
 {
     [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
-    partial class Form1
+    partial class Form1 : Form
     {
         /// <summary>
         ///  Required designer variable.
@@ -548,6 +548,7 @@ namespace CalculateurMasque
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculateur de Masque Réseau";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
