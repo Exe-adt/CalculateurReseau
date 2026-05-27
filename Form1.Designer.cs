@@ -65,19 +65,20 @@ namespace CalculateurMasque
             txtBcast4 = new TextBox();
             label8 = new Label();
             label9 = new Label();
-            txtFirst1 = new TextBox();
-            txtFirst2 = new TextBox();
-            txtFirst3 = new TextBox();
-            txtFirst4 = new TextBox();
-            txtLast1 = new TextBox();
-            txtLast2 = new TextBox();
-            txtLast3 = new TextBox();
-            txtLast4 = new TextBox();
+            txtPre1 = new TextBox();
+            txtPre2 = new TextBox();
+            txtPre3 = new TextBox();
+            txtPre4 = new TextBox();
+            txtDer1 = new TextBox();
+            txtDer2 = new TextBox();
+            txtDer3 = new TextBox();
+            txtDer4 = new TextBox();
             label10 = new Label();
             label11 = new Label();
             txtNbIP = new TextBox();
             label12 = new Label();
             txtNbMachines = new TextBox();
+            btnVider = new Button();
             SuspendLayout();
             // 
             // Label1
@@ -385,69 +386,69 @@ namespace CalculateurMasque
             label9.TabIndex = 33;
             label9.Text = "Dernière IP";
             // 
-            // txtFirst1
+            // txtPre1
             // 
-            txtFirst1.Location = new Point(90, 318);
-            txtFirst1.Name = "txtFirst1";
-            txtFirst1.ReadOnly = true;
-            txtFirst1.Size = new Size(60, 27);
-            txtFirst1.TabIndex = 34;
+            txtPre1.Location = new Point(90, 318);
+            txtPre1.Name = "txtPre1";
+            txtPre1.ReadOnly = true;
+            txtPre1.Size = new Size(60, 27);
+            txtPre1.TabIndex = 34;
             // 
-            // txtFirst2
+            // txtPre2
             // 
-            txtFirst2.Location = new Point(160, 318);
-            txtFirst2.Name = "txtFirst2";
-            txtFirst2.ReadOnly = true;
-            txtFirst2.Size = new Size(60, 27);
-            txtFirst2.TabIndex = 35;
+            txtPre2.Location = new Point(160, 318);
+            txtPre2.Name = "txtPre2";
+            txtPre2.ReadOnly = true;
+            txtPre2.Size = new Size(60, 27);
+            txtPre2.TabIndex = 35;
             // 
-            // txtFirst3
+            // txtPre3
             // 
-            txtFirst3.Location = new Point(230, 318);
-            txtFirst3.Name = "txtFirst3";
-            txtFirst3.ReadOnly = true;
-            txtFirst3.Size = new Size(60, 27);
-            txtFirst3.TabIndex = 36;
+            txtPre3.Location = new Point(230, 318);
+            txtPre3.Name = "txtPre3";
+            txtPre3.ReadOnly = true;
+            txtPre3.Size = new Size(60, 27);
+            txtPre3.TabIndex = 36;
             // 
-            // txtFirst4
+            // txtPre4
             // 
-            txtFirst4.Location = new Point(300, 318);
-            txtFirst4.Name = "txtFirst4";
-            txtFirst4.ReadOnly = true;
-            txtFirst4.Size = new Size(60, 27);
-            txtFirst4.TabIndex = 37;
+            txtPre4.Location = new Point(300, 318);
+            txtPre4.Name = "txtPre4";
+            txtPre4.ReadOnly = true;
+            txtPre4.Size = new Size(60, 27);
+            txtPre4.TabIndex = 37;
             // 
-            // txtLast1
+            // txtDer1
             // 
-            txtLast1.Location = new Point(105, 351);
-            txtLast1.Name = "txtLast1";
-            txtLast1.ReadOnly = true;
-            txtLast1.Size = new Size(60, 27);
-            txtLast1.TabIndex = 38;
+            txtDer1.Location = new Point(105, 351);
+            txtDer1.Name = "txtDer1";
+            txtDer1.ReadOnly = true;
+            txtDer1.Size = new Size(60, 27);
+            txtDer1.TabIndex = 38;
             // 
-            // txtLast2
+            // txtDer2
             // 
-            txtLast2.Location = new Point(171, 351);
-            txtLast2.Name = "txtLast2";
-            txtLast2.ReadOnly = true;
-            txtLast2.Size = new Size(60, 27);
-            txtLast2.TabIndex = 39;
+            txtDer2.Location = new Point(171, 351);
+            txtDer2.Name = "txtDer2";
+            txtDer2.ReadOnly = true;
+            txtDer2.Size = new Size(60, 27);
+            txtDer2.TabIndex = 39;
             // 
-            // txtLast3
+            // txtDer3
             // 
-            txtLast3.Location = new Point(237, 351);
-            txtLast3.Name = "txtLast3";
-            txtLast3.ReadOnly = true;
-            txtLast3.Size = new Size(60, 27);
-            txtLast3.TabIndex = 40;
+            txtDer3.Location = new Point(237, 351);
+            txtDer3.Name = "txtDer3";
+            txtDer3.ReadOnly = true;
+            txtDer3.Size = new Size(60, 27);
+            txtDer3.TabIndex = 40;
             // 
-            // txtLast4
+            // txtDer4
             // 
-            txtLast4.Location = new Point(303, 351);
-            txtLast4.Name = "txtLast4";
-            txtLast4.ReadOnly = true;
-            txtLast4.Size = new Size(60, 27);
-            txtLast4.TabIndex = 41;
+            txtDer4.Location = new Point(303, 351);
+            txtDer4.Name = "txtDer4";
+            txtDer4.ReadOnly = true;
+            txtDer4.Size = new Size(60, 27);
+            txtDer4.TabIndex = 41;
             // 
             // label10
             // 
@@ -491,24 +492,35 @@ namespace CalculateurMasque
             txtNbMachines.Size = new Size(60, 27);
             txtNbMachines.TabIndex = 46;
             // 
+            // btnVider
+            // 
+            btnVider.Location = new Point(345, 171);
+            btnVider.Name = "btnVider";
+            btnVider.Size = new Size(94, 29);
+            btnVider.TabIndex = 47;
+            btnVider.Text = "Vider";
+            btnVider.UseVisualStyleBackColor = true;
+            btnVider.Click += btnVider_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(582, 453);
+            ClientSize = new Size(795, 453);
+            Controls.Add(btnVider);
             Controls.Add(txtNbMachines);
             Controls.Add(label12);
             Controls.Add(txtNbIP);
             Controls.Add(label11);
             Controls.Add(label10);
-            Controls.Add(txtLast4);
-            Controls.Add(txtLast3);
-            Controls.Add(txtLast2);
-            Controls.Add(txtLast1);
-            Controls.Add(txtFirst4);
-            Controls.Add(txtFirst3);
-            Controls.Add(txtFirst2);
-            Controls.Add(txtFirst1);
+            Controls.Add(txtDer4);
+            Controls.Add(txtDer3);
+            Controls.Add(txtDer2);
+            Controls.Add(txtDer1);
+            Controls.Add(txtPre4);
+            Controls.Add(txtPre3);
+            Controls.Add(txtPre2);
+            Controls.Add(txtPre1);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(txtBcast4);
@@ -594,18 +606,19 @@ namespace CalculateurMasque
         private TextBox txtBcast4;
         private Label label8;
         private Label label9;
-        private TextBox txtFirst1;
-        private TextBox txtFirst2;
-        private TextBox txtFirst3;
-        private TextBox txtFirst4;
-        private TextBox txtLast1;
-        private TextBox txtLast2;
-        private TextBox txtLast3;
-        private TextBox txtLast4;
+        private TextBox txtPre1;
+        private TextBox txtPre2;
+        private TextBox txtPre3;
+        private TextBox txtPre4;
+        private TextBox txtDer1;
+        private TextBox txtDer2;
+        private TextBox txtDer3;
+        private TextBox txtDer4;
         private Label label10;
         private Label label11;
         private TextBox txtNbIP;
         private Label label12;
         private TextBox txtNbMachines;
+        private Button btnVider;
     }
 }

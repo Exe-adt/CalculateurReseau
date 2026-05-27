@@ -57,7 +57,6 @@
         public string DeterminerClasse(int premierOctet)
         {
             if (premierOctet >= 1 && premierOctet <= 126) return "A";
-            //if (premierOctet == 127) return "L"; // Loopback
             if (premierOctet >= 128 && premierOctet <= 191) return "B";
             if (premierOctet >= 192 && premierOctet <= 223) return "C";
             if (premierOctet >= 224 && premierOctet <= 239) return "D";
@@ -97,10 +96,10 @@
         }
 
         // Calcule le nombre total d'IPs et d'hôtes
-        public (long nbIPs, long nbMachines) CalculerNombre(int cidr)
+        public (double nbIPs, double nbMachines) CalculerNombre(int cidr)
         {
-            long nbIPs = (long)Math.Pow(2, 32 - cidr);
-            long nbMachines = nbIPs - 2;
+            double nbIPs = (double)Math.Pow(2, 32 - cidr);
+            double nbMachines = nbIPs - 2;
             if (nbMachines < 0) nbMachines = 0;
             return (nbIPs, nbMachines);
         }
