@@ -62,7 +62,7 @@ namespace CalculateurMasque
             }
         }
 
-        private bool EssayerLireIP(out int[] ip)
+        private bool VerifIP(out int[] ip)
         {
             ip = new int[4];
             TextBox[] octets = { txtOct1, txtOct2, txtOct3, txtOct4 };
@@ -80,7 +80,7 @@ namespace CalculateurMasque
             return true;
         }
 
-        private bool EssayerLireMasque(out int[] masque)
+        private bool VerifMasque(out int[] masque)
         {
             masque = new int[4];
 
@@ -90,7 +90,7 @@ namespace CalculateurMasque
             return EssayerLireMasqueStandard(out masque);
         }
 
-        private bool EssayerLireCIDR(out int[] masque)
+        private bool VerifCIDR(out int[] masque)
         {
             masque = new int[4];
 
@@ -106,7 +106,7 @@ namespace CalculateurMasque
             return true;
         }
 
-        private bool EssayerLireMasqueStandard(out int[] masque)
+        private bool VerifMasqueStandard(out int[] masque)
         {
             masque = new int[4];
             TextBox[] champsMasque = { txtMask1, txtMask2, txtMask3, txtMask4 };
