@@ -95,7 +95,7 @@ namespace CalculateurMasque
             // 
             // txtOct1
             // 
-            txtOct1.BackColor = SystemColors.ControlLight;
+            txtOct1.BackColor = Color.LightBlue;
             txtOct1.BorderStyle = BorderStyle.FixedSingle;
             txtOct1.Location = new Point(80, 111);
             txtOct1.MaxLength = 3;
@@ -107,7 +107,7 @@ namespace CalculateurMasque
             // 
             // txtOct2
             // 
-            txtOct2.BackColor = SystemColors.ControlLight;
+            txtOct2.BackColor = Color.LightBlue;
             txtOct2.BorderStyle = BorderStyle.FixedSingle;
             txtOct2.Location = new Point(146, 111);
             txtOct2.MaxLength = 3;
@@ -119,7 +119,7 @@ namespace CalculateurMasque
             // 
             // txtOct3
             // 
-            txtOct3.BackColor = SystemColors.ControlLight;
+            txtOct3.BackColor = Color.LightBlue;
             txtOct3.BorderStyle = BorderStyle.FixedSingle;
             txtOct3.Location = new Point(212, 111);
             txtOct3.MaxLength = 3;
@@ -131,7 +131,7 @@ namespace CalculateurMasque
             // 
             // txtOct4
             // 
-            txtOct4.BackColor = SystemColors.ControlLight;
+            txtOct4.BackColor = Color.LightBlue;
             txtOct4.BorderStyle = BorderStyle.FixedSingle;
             txtOct4.Location = new Point(278, 111);
             txtOct4.MaxLength = 3;
@@ -198,7 +198,7 @@ namespace CalculateurMasque
             // 
             // txtCIDR
             // 
-            txtCIDR.BackColor = SystemColors.ControlLight;
+            txtCIDR.BackColor = Color.LightBlue;
             txtCIDR.BorderStyle = BorderStyle.FixedSingle;
             txtCIDR.Location = new Point(415, 111);
             txtCIDR.MaxLength = 2;
@@ -219,7 +219,7 @@ namespace CalculateurMasque
             // 
             // txtMask1
             // 
-            txtMask1.BackColor = SystemColors.ControlLight;
+            txtMask1.BackColor = Color.LightBlue;
             txtMask1.BorderStyle = BorderStyle.FixedSingle;
             txtMask1.Location = new Point(502, 111);
             txtMask1.MaxLength = 3;
@@ -230,7 +230,7 @@ namespace CalculateurMasque
             // 
             // txtMask2
             // 
-            txtMask2.BackColor = SystemColors.ControlLight;
+            txtMask2.BackColor = Color.LightBlue;
             txtMask2.BorderStyle = BorderStyle.FixedSingle;
             txtMask2.Location = new Point(568, 111);
             txtMask2.Name = "txtMask2";
@@ -240,7 +240,7 @@ namespace CalculateurMasque
             // 
             // txtMask3
             // 
-            txtMask3.BackColor = SystemColors.ControlLight;
+            txtMask3.BackColor = Color.LightBlue;
             txtMask3.BorderStyle = BorderStyle.FixedSingle;
             txtMask3.Location = new Point(634, 111);
             txtMask3.Name = "txtMask3";
@@ -250,7 +250,7 @@ namespace CalculateurMasque
             // 
             // txtMask4
             // 
-            txtMask4.BackColor = SystemColors.ControlLight;
+            txtMask4.BackColor = Color.LightBlue;
             txtMask4.BorderStyle = BorderStyle.FixedSingle;
             txtMask4.Location = new Point(700, 111);
             txtMask4.Name = "txtMask4";
@@ -260,7 +260,7 @@ namespace CalculateurMasque
             // 
             // btnCalculer
             // 
-            btnCalculer.BackColor = Color.Silver;
+            btnCalculer.BackColor = Color.LightSteelBlue;
             btnCalculer.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCalculer.Location = new Point(280, 185);
             btnCalculer.Name = "btnCalculer";
@@ -559,19 +559,21 @@ namespace CalculateurMasque
             // 
             // btnVider
             // 
+            btnVider.BackColor = SystemColors.ActiveBorder;
             btnVider.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVider.Location = new Point(451, 185);
             btnVider.Name = "btnVider";
             btnVider.Size = new Size(100, 35);
             btnVider.TabIndex = 47;
             btnVider.Text = "Vider";
-            btnVider.UseVisualStyleBackColor = true;
+            btnVider.UseVisualStyleBackColor = false;
             btnVider.Click += btnVider_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
+            label2.ForeColor = SystemColors.ActiveCaptionText;
             label2.Location = new Point(280, 22);
             label2.Name = "label2";
             label2.Size = new Size(245, 31);
@@ -580,6 +582,7 @@ namespace CalculateurMasque
             // 
             // label13
             // 
+            label13.BackColor = Color.LightSteelBlue;
             label13.BorderStyle = BorderStyle.FixedSingle;
             label13.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label13.Location = new Point(48, 247);
@@ -590,6 +593,7 @@ namespace CalculateurMasque
             // 
             // label14
             // 
+            label14.BackColor = Color.LightSteelBlue;
             label14.BorderStyle = BorderStyle.FixedSingle;
             label14.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label14.Location = new Point(48, 439);
@@ -600,6 +604,7 @@ namespace CalculateurMasque
             // 
             // label15
             // 
+            label15.BackColor = Color.LightSteelBlue;
             label15.BorderStyle = BorderStyle.FixedSingle;
             label15.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.Location = new Point(48, 665);
@@ -644,7 +649,7 @@ namespace CalculateurMasque
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ControlLight;
+            BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(795, 809);
             Controls.Add(label18);
             Controls.Add(label17);
