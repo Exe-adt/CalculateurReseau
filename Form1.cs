@@ -1,12 +1,13 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CalculateurMasque
 {
     public partial class Form1 : Form
     {
-        private readonly CalculReseau calc = new CalculReseau();
+        private CalculReseau calc = new CalculReseau();
 
         public Form1()
         {
@@ -16,15 +17,18 @@ namespace CalculateurMasque
         private bool ModifManuellement = false; //flag pour déterminer si une saisie du masque est effectué manuellement
         private bool miseAJourAutomatique = false; //permet d'empécher les TextChanged de s'éxecuter si c'est le programme qui modifie les champs
 
-        private void txtOct_TextChanged(object sender, EventArgs e)
+        private void txtIP_TextChanged(object sender, EventArgs e)
         {
             ConvertirEnBinaire();
-            if (int.TryParse(txtOct1.Text, out int premierOctet) && premierOctet >= 0 && premierOctet <= 255)
+
+            string[] bouts = txtIP.Text.Split('.');
+            if (bouts.Length == 4 && int.TryParse(bouts[0], out int premierOctet) && premierOctet >= 0 && premierOctet <= 255)
             {
 
                 if (!ModifManuellement)
                 {
                     string classe = calc.DeterminerClasse(premierOctet);
+
                     miseAJourAutomatique = true;
                     txtCIDR.Text = calc.MasqueParDefaut(classe).ToString();
                     miseAJourAutomatique = false;
@@ -76,50 +80,57 @@ namespace CalculateurMasque
 
         private void ConvertirEnBinaire()
         {
-            TextBox[] octetsDec = { txtOct1, txtOct2, txtOct3, txtOct4 };
+            string[] bouts = txtIP.Text.Split('.');
 
-            TextBox[] octetsBin = { txtBin1, txtBin2, txtBin3, txtBin4 };
+            if (bouts.Length != 4)
+            {
+                txtBin.Text = "";
+                return;
+            }
+
+            int[] ip = new int[4];
 
             for (int i = 0; i < 4; i++)
             {
-                if (int.TryParse(octetsDec[i].Text, out int valeur) && valeur >= 0 && valeur <= 255)
+                if (!int.TryParse(bouts[i], out ip[i]) || ip[i] < 0 || ip[i] > 255)
                 {
-                    octetsBin[i].Text = calc.DecimalVersBinaire(valeur);
-
-                    octetsDec[i].BackColor = Color.White;
-                }
-                else if (string.IsNullOrWhiteSpace(octetsDec[i].Text))
-                {
-                    octetsBin[i].Text = "";
-                    octetsDec[i].BackColor = Color.White;
-                }
-                else
-                {
-                    octetsBin[i].Text = "????????";
-                    octetsDec[i].BackColor = Color.LightCoral;
+                    txtBin.Text = "";
+                    return;
                 }
             }
+
+            txtBin.Text =
+                $"{calc.DecimalVersBinaire(ip[0])}." +
+                $"{calc.DecimalVersBinaire(ip[1])}." +
+                $"{calc.DecimalVersBinaire(ip[2])}." +
+                $"{calc.DecimalVersBinaire(ip[3])}";
         }
+
+
 
         private bool VerifIP(out int[] ip)
         {
             ip = new int[4];
+            string[] bouts = txtIP.Text.Split('.');
 
-            TextBox[] champs = { txtOct1, txtOct2, txtOct3, txtOct4 };
+            if (bouts.Length != 4)
+            {
+                MessageBox.Show("Adresse IP invalide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
             for (int i = 0; i < 4; i++)
             {
-                if (!int.TryParse(champs[i].Text, out ip[i]) || ip[i] < 0 || ip[i] > 255)
+                if (!int.TryParse(bouts[i], out ip[i]) || ip[i] < 0 || ip[i] > 255)
                 {
-                    MessageBox.Show("Adresse IP invalide.\nChaque octet doit être compris entre 0 et 255.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    champs[i].BackColor = Color.LightCoral;
-
+                    MessageBox.Show("Adresse IP invalide.\nChaque octet doit être entre 0 et 255.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
-
             return true;
         }
+
+
 
         private bool VerifMasque(out int[] masque)
         {
@@ -195,12 +206,7 @@ namespace CalculateurMasque
             txtCIDR.Text = cidr.ToString();
             miseAJourAutomatique = false;
             return true;
-
-
-
         }
-
-
 
 
         private void AfficherResultats(int[] ip, int[] masque)
@@ -212,7 +218,6 @@ namespace CalculateurMasque
             string classe = calc.DeterminerClasse(ip[0]);
 
             int[] reseau = calc.CalculerAdresseReseau(ip, masque);
-
             int[] broadcast = calc.CalculerBroadcast(reseau, masque);
 
             var (nbIP, nbMachines) = calc.CalculerNombre(cidr);
@@ -220,31 +225,29 @@ namespace CalculateurMasque
             txtClasse1.Text = classe;
             txtClasse1.BackColor = CouleurClasse(classe);
 
-            RemplirAdresse(new[] { txtNet1, txtNet2, txtNet3, txtNet4 }, reseau);
+            AfficherAdresse(txtNet, reseau);
+            AfficherAdresse(txtBcast, broadcast);
 
-            RemplirAdresse(new[] { txtBcast1, txtBcast2, txtBcast3, txtBcast4 }, broadcast);
 
             if (cidr < 31)
             {
                 int[] premiere = calc.PremiereAdresse(reseau);
-
                 int[] derniere = calc.DerniereAdresse(broadcast);
 
-                RemplirAdresse(new[] { txtPre1, txtPre2, txtPre3, txtPre4 }, premiere);
-
-                RemplirAdresse(new[] { txtDer1, txtDer2, txtDer3, txtDer4 }, derniere);
+                AfficherAdresse(txtPremier, premiere);
+                AfficherAdresse(txtDernier, derniere);
             }
             else
             {
-                ViderAdresse(txtPre1, txtPre2, txtPre3, txtPre4);
+                ViderAdresse(txtPremier);
 
-                ViderAdresse(txtDer1, txtDer2, txtDer3, txtDer4);
+                ViderAdresse(txtDernier);
             }
 
-            textMaskBin.Text = calc.DecimalVersBinaire(masque[0]) + "." +
-                       calc.DecimalVersBinaire(masque[1]) + "." +
-                       calc.DecimalVersBinaire(masque[2]) + "." +
-                       calc.DecimalVersBinaire(masque[3]);
+            txtMaskBin.Text = $"{calc.DecimalVersBinaire(masque[0])}." +
+                $"{calc.DecimalVersBinaire(masque[1])}." +
+                $"{calc.DecimalVersBinaire(masque[2])}." +
+                $"{calc.DecimalVersBinaire(masque[3])}";
 
             txtNbIP.Text = nbIP.ToString();
             txtNbMachines.Text = nbMachines.ToString();
@@ -257,18 +260,15 @@ namespace CalculateurMasque
             txtMask.Text = masque[0] + "." + masque[1] + "." + masque[2] + "." + masque[3];
         }
 
-        private void RemplirAdresse(TextBox[] champs, int[] valeurs)
+        private void AfficherAdresse(TextBox txt, int[] adr)
         {
-            for (int i = 0; i < 4; i++)
-                champs[i].Text = valeurs[i].ToString();
+            txt.Text = $"{adr[0]}.{adr[1]}.{adr[2]}.{adr[3]}";
         }
 
-        private void ViderAdresse(TextBox a, TextBox b, TextBox c, TextBox d)
+        private void ViderAdresse(TextBox t)
         {
-            a.Text = "";
-            b.Text = "";
-            c.Text = "";
-            d.Text = "";
+            t.Text = "";
+
         }
 
         private Color CouleurClasse(string classe)
@@ -283,31 +283,7 @@ namespace CalculateurMasque
             };
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+        
         }
 
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label17_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBin4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-    }
 }
