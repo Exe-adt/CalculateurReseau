@@ -16,6 +16,16 @@ namespace CalculateurMasque
         private void txtOct_TextChanged(object sender, EventArgs e)
         {
             ConvertirEnBinaire();
+
+            if (int.TryParse(txtOct1.Text, out int premierOctet) && premierOctet >= 0 && premierOctet <= 255)
+            {
+                if (txtCIDR.Text == "" && txtMask1.Text == "")
+                {
+                    string classe = calc.DeterminerClasse(premierOctet);
+                    txtCIDR.Text = calc.MasqueParDefaut(classe).ToString();
+                }
+            }
+
         }
 
         private void btnCalculer_Click(object sender, EventArgs e)
@@ -98,10 +108,20 @@ namespace CalculateurMasque
         {
             masque = new int[4];
 
-            if (!string.IsNullOrWhiteSpace(txtCIDR.Text))
+            if (txtCIDR.Text != "" && txtCIDR.Text != " ")
                 return VerifCIDR(out masque);
 
-            return VerifMasqueStandard(out masque);
+            if (txtMask1.Text != "")
+                return VerifMasqueStandard(out masque);
+
+            if (!VerifIP(out int[] ip))
+                return false;
+
+            string classe = calc.DeterminerClasse(ip[0]);
+            int cidrDefaut = calc.MasqueParDefaut(classe);
+
+            txtCIDR.Text = cidrDefaut.ToString();
+            return VerifCIDR(out masque);
         }
 
         private bool VerifCIDR(out int[] masque)
@@ -188,7 +208,6 @@ namespace CalculateurMasque
                 ViderAdresse(txtDer1, txtDer2, txtDer3, txtDer4);
             }
 
-            textMaskCIDR.Text = cidr.ToString();
             textMaskBin.Text = calc.DecimalVersBinaire(masque[0]) + "." +
                        calc.DecimalVersBinaire(masque[1]) + "." +
                        calc.DecimalVersBinaire(masque[2]) + "." +
@@ -256,5 +275,7 @@ namespace CalculateurMasque
         {
 
         }
+
+       
     }
 }

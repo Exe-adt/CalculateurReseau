@@ -145,10 +145,10 @@ namespace CalculateurMasque
             // 
             txtBin1.BackColor = SystemColors.ControlLight;
             txtBin1.BorderStyle = BorderStyle.FixedSingle;
-            txtBin1.Location = new Point(93, 329);
+            txtBin1.Location = new Point(57, 329);
             txtBin1.Name = "txtBin1";
             txtBin1.ReadOnly = true;
-            txtBin1.Size = new Size(60, 27);
+            txtBin1.Size = new Size(83, 27);
             txtBin1.TabIndex = 6;
             txtBin1.TextAlign = HorizontalAlignment.Center;
             // 
@@ -156,10 +156,10 @@ namespace CalculateurMasque
             // 
             txtBin2.BackColor = SystemColors.ControlLight;
             txtBin2.BorderStyle = BorderStyle.FixedSingle;
-            txtBin2.Location = new Point(159, 329);
+            txtBin2.Location = new Point(146, 329);
             txtBin2.Name = "txtBin2";
             txtBin2.ReadOnly = true;
-            txtBin2.Size = new Size(60, 27);
+            txtBin2.Size = new Size(83, 27);
             txtBin2.TabIndex = 7;
             txtBin2.TextAlign = HorizontalAlignment.Center;
             // 
@@ -167,10 +167,10 @@ namespace CalculateurMasque
             // 
             txtBin3.BackColor = SystemColors.ControlLight;
             txtBin3.BorderStyle = BorderStyle.FixedSingle;
-            txtBin3.Location = new Point(225, 329);
+            txtBin3.Location = new Point(235, 329);
             txtBin3.Name = "txtBin3";
             txtBin3.ReadOnly = true;
-            txtBin3.Size = new Size(60, 27);
+            txtBin3.Size = new Size(83, 27);
             txtBin3.TabIndex = 8;
             txtBin3.TextAlign = HorizontalAlignment.Center;
             // 
@@ -178,10 +178,10 @@ namespace CalculateurMasque
             // 
             txtBin4.BackColor = SystemColors.ControlLight;
             txtBin4.BorderStyle = BorderStyle.FixedSingle;
-            txtBin4.Location = new Point(290, 329);
+            txtBin4.Location = new Point(325, 329);
             txtBin4.Name = "txtBin4";
             txtBin4.ReadOnly = true;
-            txtBin4.Size = new Size(61, 27);
+            txtBin4.Size = new Size(83, 27);
             txtBin4.TabIndex = 9;
             txtBin4.TextAlign = HorizontalAlignment.Center;
             txtBin4.TextChanged += txtBin4_TextChanged;
@@ -274,7 +274,7 @@ namespace CalculateurMasque
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label5.Location = new Point(461, 299);
+            label5.Location = new Point(497, 299);
             label5.Name = "label5";
             label5.Size = new Size(84, 25);
             label5.TabIndex = 20;
@@ -284,7 +284,7 @@ namespace CalculateurMasque
             // 
             txtClasse1.BackColor = SystemColors.ControlLight;
             txtClasse1.BorderStyle = BorderStyle.FixedSingle;
-            txtClasse1.Location = new Point(478, 329);
+            txtClasse1.Location = new Point(511, 329);
             txtClasse1.Name = "txtClasse1";
             txtClasse1.ReadOnly = true;
             txtClasse1.Size = new Size(40, 27);
@@ -617,7 +617,7 @@ namespace CalculateurMasque
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label17.Location = new Point(325, 370);
+            label17.Location = new Point(342, 370);
             label17.Name = "label17";
             label17.Size = new Size(153, 25);
             label17.TabIndex = 53;
@@ -636,7 +636,7 @@ namespace CalculateurMasque
             // 
             // textMaskBin
             // 
-            textMaskBin.Location = new Point(265, 398);
+            textMaskBin.Location = new Point(276, 398);
             textMaskBin.Name = "textMaskBin";
             textMaskBin.Size = new Size(286, 27);
             textMaskBin.TabIndex = 55;

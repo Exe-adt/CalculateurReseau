@@ -75,6 +75,15 @@ namespace CalculateurMasque
             return "E";
         }
 
+        public int MasqueParDefaut(string classe)
+        {
+            if (classe == "A") return 8;
+            if (classe == "B") return 16;
+            if (classe == "C") return 24;
+            return 24;
+
+        }
+
         public int[] CalculerAdresseReseau(int[] ip, int[] masque)
         {
             int[] reseau = new int[4];
