@@ -1,8 +1,5 @@
-﻿using System.Diagnostics;
-
 namespace CalculateurMasque
 {
-    [DebuggerDisplay($"{{{nameof(GetDebuggerDisplay)}(),nq}}")]
     partial class Form1 : Form
     {
         /// <summary>
@@ -278,6 +275,7 @@ namespace CalculateurMasque
             txtClasse1.Location = new Point(161, 318);
             txtClasse1.Name = "txtClasse1";
             txtClasse1.ReadOnly = true;
+            txtClasse1.TextAlign = HorizontalAlignment.Center;
             txtClasse1.Size = new Size(40, 27);
             txtClasse1.TabIndex = 21;
             // 
@@ -506,7 +504,7 @@ namespace CalculateurMasque
             txtNbIP.Location = new Point(237, 667);
             txtNbIP.Name = "txtNbIP";
             txtNbIP.ReadOnly = true;
-            txtNbIP.Size = new Size(60, 27);
+            txtNbIP.Size = new Size(120, 27);
             txtNbIP.TabIndex = 44;
             // 
             // label12
@@ -526,7 +524,7 @@ namespace CalculateurMasque
             txtNbMachines.Location = new Point(628, 669);
             txtNbMachines.Name = "txtNbMachines";
             txtNbMachines.ReadOnly = true;
-            txtNbMachines.Size = new Size(60, 27);
+            txtNbMachines.Size = new Size(120, 27);
             txtNbMachines.TabIndex = 46;
             // 
             // btnVider

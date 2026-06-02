@@ -1,107 +1,154 @@
-﻿namespace CalculateurMasque
+﻿using System;
+
+namespace CalculateurMasque
 {
     public class CalculReseau
     {
-
-        // Convertit un octet décimal en binaire sur 8 bits
         public string DecimalVersBinaire(int valeur)
         {
             return Convert.ToString(valeur, 2).PadLeft(8, '0');
         }
 
-        // Convertit un masque CIDR en tableau de 4 octets
-        // Ex : /24 → [255, 255, 255, 0]
         public int[] CIDRVersMasque(int cidr)
         {
             int[] masque = new int[4];
-            int bits = cidr;
 
-            for (int octet = 0; octet < 4; octet++)
+            for (int i = 0; i < 4; i++)
             {
-                if (bits >= 8)
+                if (cidr >= 8)
                 {
-                    masque[octet] = 255;
-                    bits -= 8;
+                    masque[i] = 255;
+                    cidr -= 8;
                 }
-                else if (bits > 0)
+                else if (cidr > 0)
                 {
-                    masque[octet] = 256 - (int)Math.Pow(2, 8 - bits);
-                    bits = 0;
+                    masque[i] = (255 << (8 - cidr)) & 255;
+                    cidr = 0;
                 }
                 else
-                {
-                    masque[octet] = 0;
+                    masque[i] = 0;
                 }
-            }
+
             return masque;
         }
 
-        // Convertit un masque sur 4 octets en CIDR
-        // Ex : [255, 255, 255, 0] → 24
         public int MasqueVersCIDR(int[] masque)
         {
             int cidr = 0;
+            bool zeroTrouve = false;
+
             foreach (int octet in masque)
             {
                 string binaire = Convert.ToString(octet, 2).PadLeft(8, '0');
+
                 foreach (char bit in binaire)
                 {
-                    if (bit == '1') cidr++;
-                    else break;
+                    if (bit == '1')
+                    {
+                        if (zeroTrouve)
+                            return -1;
+
+                        cidr++;
                 }
+                    else
+                        zeroTrouve = true;
             }
+            }
+
             return cidr;
         }
 
-        // Détermine la classe de l'adresse IP (A, B, C, D, E)
         public string DeterminerClasse(int premierOctet)
         {
-            if (premierOctet >= 1 && premierOctet <= 126) return "A";
-            if (premierOctet >= 128 && premierOctet <= 191) return "B";
-            if (premierOctet >= 192 && premierOctet <= 223) return "C";
-            if (premierOctet >= 224 && premierOctet <= 239) return "D";
+            if (premierOctet >= 1 && premierOctet <= 126)
+                return "A";
+
+            if (premierOctet >= 128 && premierOctet <= 191)
+                return "B";
+
+            if (premierOctet >= 192 && premierOctet <= 223)
+                return "C";
+
+            if (premierOctet >= 224 && premierOctet <= 239)
+                return "D";
+
             return "E";
         }
 
-        // Calcule l'adresse réseau (AND entre IP et masque)
         public int[] CalculerAdresseReseau(int[] ip, int[] masque)
         {
             int[] reseau = new int[4];
+
             for (int i = 0; i < 4; i++)
                 reseau[i] = ip[i] & masque[i];
+
             return reseau;
         }
 
-        // Calcule l'adresse broadcast (OR entre réseau et inverse du masque)
         public int[] CalculerBroadcast(int[] reseau, int[] masque)
         {
             int[] broadcast = new int[4];
+
             for (int i = 0; i < 4; i++)
-                broadcast[i] = reseau[i] | (255 - masque[i]);
+                broadcast[i] = reseau[i] | (~masque[i] & 255);
+
             return broadcast;
         }
 
-        public int[] PremiereIP(int[] reseau)
+        public int[] PremiereAdresse(int[] reseau)
         {
-            int[] premiere = (int[])reseau.Clone();
-            premiere[3] += 1;
-            return premiere;
+            return IncrementerIP(reseau);
         }
 
-        public int[] DerniereIP(int[] broadcast)
+        public int[] DerniereAdresse(int[] broadcast)
         {
-            int[] derniere = (int[])broadcast.Clone();
-            derniere[3] -= 1;
-            return derniere;
+            return DecrementerIP(broadcast);
         }
 
-        // Calcule le nombre total d'IPs et d'hôtes
-        public (double nbIPs, double nbMachines) CalculerNombre(int cidr)
+        private int[] IncrementerIP(int[] ip)
         {
-            double nbIPs = (double)Math.Pow(2, 32 - cidr);
-            double nbMachines = nbIPs - 2;
-            if (nbMachines < 0) nbMachines = 0;
-            return (nbIPs, nbMachines);
+            int[] resultat = (int[])ip.Clone();
+
+            for (int i = 3; i >= 0; i--)
+        {
+                resultat[i]++;
+
+                if (resultat[i] <= 255)
+                    break;
+
+                resultat[i] = 0;
+        }
+
+            return resultat;
+        }
+
+        private int[] DecrementerIP(int[] ip)
+        {
+            int[] resultat = (int[])ip.Clone();
+
+            for (int i = 3; i >= 0; i--)
+            {
+                resultat[i]--;
+
+                if (resultat[i] >= 0)
+                    break;
+
+                resultat[i] = 255;
+            }
+
+            return resultat;
+        }
+
+        public (long nbIP, long nbMachines) CalculerNombre(int cidr)
+        {
+            long nbIP = (long)Math.Pow(2, 32 - cidr);
+
+            long nbMachines = nbIP - 2;
+
+            if (cidr >= 31)
+                nbMachines = 0;
+
+            return (nbIP, nbMachines);
         }
     }
 }
