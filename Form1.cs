@@ -188,6 +188,12 @@ namespace CalculateurMasque
                 ViderAdresse(txtDer1, txtDer2, txtDer3, txtDer4);
             }
 
+            textMaskCIDR.Text = cidr.ToString();
+            textMaskBin.Text = calc.DecimalVersBinaire(masque[0]) + "." +
+                       calc.DecimalVersBinaire(masque[1]) + "." +
+                       calc.DecimalVersBinaire(masque[2]) + "." +
+                       calc.DecimalVersBinaire(masque[3]);
+
             txtNbIP.Text = nbIP.ToString();
             txtNbMachines.Text = nbMachines.ToString();
         }

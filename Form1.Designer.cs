@@ -77,9 +77,9 @@ namespace CalculateurMasque
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
-            label16 = new Label();
             label17 = new Label();
             label18 = new Label();
+            textMaskBin = new TextBox();
             SuspendLayout();
             // 
             // Label1
@@ -611,24 +611,13 @@ namespace CalculateurMasque
             label15.Name = "label15";
             label15.Size = new Size(700, 30);
             label15.TabIndex = 51;
-            label15.Text = "Réseau";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label16.Location = new Point(461, 373);
-            label16.Name = "label16";
-            label16.Size = new Size(135, 25);
-            label16.TabIndex = 52;
-            label16.Text = "Masque (CIDR)";
-            label16.Click += label16_Click;
+            label15.Text = "Nombre total";
             // 
             // label17
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label17.Location = new Point(89, 373);
+            label17.Location = new Point(325, 370);
             label17.Name = "label17";
             label17.Size = new Size(153, 25);
             label17.TabIndex = 53;
@@ -645,15 +634,22 @@ namespace CalculateurMasque
             label18.TabIndex = 54;
             label18.Text = "Adresse IP en Binaire";
             // 
+            // textMaskBin
+            // 
+            textMaskBin.Location = new Point(265, 398);
+            textMaskBin.Name = "textMaskBin";
+            textMaskBin.Size = new Size(286, 27);
+            textMaskBin.TabIndex = 55;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(795, 809);
+            Controls.Add(textMaskBin);
             Controls.Add(label18);
             Controls.Add(label17);
-            Controls.Add(label16);
             Controls.Add(label15);
             Controls.Add(label14);
             Controls.Add(label13);
@@ -765,8 +761,8 @@ namespace CalculateurMasque
         private Label label13;
         private Label label14;
         private Label label15;
-        private Label label16;
         private Label label17;
         private Label label18;
+        private TextBox textMaskBin;
     }
 }
