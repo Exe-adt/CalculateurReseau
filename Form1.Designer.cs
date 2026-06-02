@@ -612,7 +612,7 @@ namespace CalculateurMasque
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label16.Location = new Point(93, 368);
+            label16.Location = new Point(461, 373);
             label16.Name = "label16";
             label16.Size = new Size(135, 25);
             label16.TabIndex = 52;
@@ -623,7 +623,7 @@ namespace CalculateurMasque
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label17.Location = new Point(461, 368);
+            label17.Location = new Point(89, 373);
             label17.Name = "label17";
             label17.Size = new Size(153, 25);
             label17.TabIndex = 53;
