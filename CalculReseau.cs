@@ -12,6 +12,8 @@ namespace CalculateurMasque
         public int[] CIDRVersMasque(int cidr)
         {
             int[] masque = new int[4];
+            if (cidr < 0 || cidr > 32)
+                throw new ArgumentException("CIDR non valide");
 
             for (int i = 0; i < 4; i++)
             {
@@ -80,7 +82,7 @@ namespace CalculateurMasque
             if (classe == "A") return 8;
             if (classe == "B") return 16;
             if (classe == "C") return 24;
-            return 24;
+            return -1;
 
         }
 

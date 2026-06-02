@@ -13,20 +13,36 @@ namespace CalculateurMasque
             InitializeComponent();
         }
 
+        private bool ModifManuellement = false; //flag pour déterminer si une saisie du masque est effectué manuellement
+        private bool miseAJourAutomatique = false; //permet d'empécher les TextChanged de s'éxecuter si c'est le programme qui modifie les champs
+
         private void txtOct_TextChanged(object sender, EventArgs e)
         {
             ConvertirEnBinaire();
-
             if (int.TryParse(txtOct1.Text, out int premierOctet) && premierOctet >= 0 && premierOctet <= 255)
             {
-                if (txtCIDR.Text == "" && txtMask.Text == "")
+
+                if (!ModifManuellement)
                 {
                     string classe = calc.DeterminerClasse(premierOctet);
+                    miseAJourAutomatique = true;
                     txtCIDR.Text = calc.MasqueParDefaut(classe).ToString();
+                    miseAJourAutomatique = false;
                 }
             }
-
         }
+
+        private void txtMask_TextChanged(object sender, EventArgs e)
+        {
+            if (!miseAJourAutomatique)
+                ModifManuellement = true;
+        }
+        private void txtCIDR_TextChanged(object sender, EventArgs e)
+        {
+            if (!miseAJourAutomatique)
+                ModifManuellement = true;
+        }
+
 
         private void btnCalculer_Click(object sender, EventArgs e)
         {
@@ -42,8 +58,8 @@ namespace CalculateurMasque
         private void btnVider_Click(object sender, EventArgs e)
         {
             ViderTextBox(this);
-
             txtClasse1.BackColor = Color.White;
+            ModifManuellement = false;
         }
 
         private void ViderTextBox(Control parent)
@@ -96,6 +112,7 @@ namespace CalculateurMasque
                 if (!int.TryParse(champs[i].Text, out ip[i]) || ip[i] < 0 || ip[i] > 255)
                 {
                     MessageBox.Show("Adresse IP invalide.\nChaque octet doit être compris entre 0 et 255.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    champs[i].BackColor = Color.LightCoral;
 
                     return false;
                 }
@@ -120,7 +137,10 @@ namespace CalculateurMasque
             string classe = calc.DeterminerClasse(ip[0]);
             int cidrDefaut = calc.MasqueParDefaut(classe);
 
+            miseAJourAutomatique = true;
             txtCIDR.Text = cidrDefaut.ToString();
+            miseAJourAutomatique = false;
+
             return VerifCIDR(out masque);
         }
 
@@ -134,10 +154,10 @@ namespace CalculateurMasque
 
                 return false;
             }
-
+            miseAJourAutomatique = true;
             masque = calc.CIDRVersMasque(cidr);
-
             RemplirChampsMasque(masque);
+            miseAJourAutomatique = false;
 
             return true;
         }
@@ -150,7 +170,7 @@ namespace CalculateurMasque
 
             if (bouts.Length != 4)
             {
-                MessageBox.Show("Masque invalide.\nFormat attendu : 255.255.255.0","Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Masque invalide.\nFormat attendu : 255.255.255.0", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -171,18 +191,22 @@ namespace CalculateurMasque
                 return false;
             }
 
+            miseAJourAutomatique = true;
             txtCIDR.Text = cidr.ToString();
+            miseAJourAutomatique = false;
             return true;
 
 
 
         }
-            
 
-        
+
+
 
         private void AfficherResultats(int[] ip, int[] masque)
         {
+            miseAJourAutomatique = true;
+
             int cidr = calc.MasqueVersCIDR(masque);
 
             string classe = calc.DeterminerClasse(ip[0]);
@@ -224,6 +248,8 @@ namespace CalculateurMasque
 
             txtNbIP.Text = nbIP.ToString();
             txtNbMachines.Text = nbMachines.ToString();
+
+            miseAJourAutomatique = false;
         }
 
         private void RemplirChampsMasque(int[] masque)
@@ -282,6 +308,6 @@ namespace CalculateurMasque
 
         }
 
-       
+
     }
 }

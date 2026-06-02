@@ -203,6 +203,7 @@ namespace CalculateurMasque
             txtCIDR.Size = new Size(40, 27);
             txtCIDR.TabIndex = 13;
             txtCIDR.TextAlign = HorizontalAlignment.Center;
+            txtCIDR.TextChanged += txtCIDR_TextChanged;
             // 
             // label4
             // 
@@ -223,6 +224,7 @@ namespace CalculateurMasque
             txtMask.Size = new Size(258, 27);
             txtMask.TabIndex = 18;
             txtMask.TextAlign = HorizontalAlignment.Center;
+            txtMask.TextChanged += txtMask_TextChanged;
             // 
             // btnCalculer
             // 
@@ -687,9 +689,7 @@ namespace CalculateurMasque
         private Label label3;
         private TextBox txtCIDR;
         private Label label4;
-        private TextBox txtMask1;
-        private TextBox txtMask2;
-        private TextBox txtMask3;
+  
         private TextBox txtMask;
         private Button btnCalculer;
         private Label label5;
