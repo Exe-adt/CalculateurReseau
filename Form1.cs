@@ -19,7 +19,7 @@ namespace CalculateurMasque
 
             if (int.TryParse(txtOct1.Text, out int premierOctet) && premierOctet >= 0 && premierOctet <= 255)
             {
-                if (txtCIDR.Text == "" && txtMask1.Text == "")
+                if (txtCIDR.Text == "" && txtMask.Text == "")
                 {
                     string classe = calc.DeterminerClasse(premierOctet);
                     txtCIDR.Text = calc.MasqueParDefaut(classe).ToString();
@@ -111,7 +111,7 @@ namespace CalculateurMasque
             if (txtCIDR.Text != "" && txtCIDR.Text != " ")
                 return VerifCIDR(out masque);
 
-            if (txtMask1.Text != "")
+            if (txtMask.Text != "")
                 return VerifMasqueStandard(out masque);
 
             if (!VerifIP(out int[] ip))
@@ -146,14 +146,19 @@ namespace CalculateurMasque
         {
             masque = new int[4];
 
-            TextBox[] champs = { txtMask1, txtMask2, txtMask3, txtMask4 };
+            string[] bouts = txtMask.Text.Split('.');
+
+            if (bouts.Length != 4)
+            {
+                MessageBox.Show("Masque invalide.\nFormat attendu : 255.255.255.0","Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
             for (int i = 0; i < 4; i++)
             {
-                if (!int.TryParse(champs[i].Text, out masque[i]) || masque[i] < 0 || masque[i] > 255)
+                if (!int.TryParse(bouts[i], out masque[i]) || masque[i] < 0 || masque[i] > 255)
                 {
-                    MessageBox.Show("Masque invalide.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    MessageBox.Show("Masque invalide.\nChaque octet doit être entre 0 et 255.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -163,14 +168,18 @@ namespace CalculateurMasque
             if (cidr == -1)
             {
                 MessageBox.Show("Masque non valide.\nLes bits à 1 doivent être continus.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
                 return false;
             }
 
             txtCIDR.Text = cidr.ToString();
-
             return true;
+
+
+
         }
+            
+
+        
 
         private void AfficherResultats(int[] ip, int[] masque)
         {
@@ -219,10 +228,7 @@ namespace CalculateurMasque
 
         private void RemplirChampsMasque(int[] masque)
         {
-            txtMask1.Text = masque[0].ToString();
-            txtMask2.Text = masque[1].ToString();
-            txtMask3.Text = masque[2].ToString();
-            txtMask4.Text = masque[3].ToString();
+            txtMask.Text = masque[0] + "." + masque[1] + "." + masque[2] + "." + masque[3];
         }
 
         private void RemplirAdresse(TextBox[] champs, int[] valeurs)

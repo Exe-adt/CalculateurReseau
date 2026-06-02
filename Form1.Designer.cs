@@ -40,10 +40,7 @@ namespace CalculateurMasque
             label3 = new Label();
             txtCIDR = new TextBox();
             label4 = new Label();
-            txtMask1 = new TextBox();
-            txtMask2 = new TextBox();
-            txtMask3 = new TextBox();
-            txtMask4 = new TextBox();
+            txtMask = new TextBox();
             btnCalculer = new Button();
             label5 = new Label();
             txtClasse1 = new TextBox();
@@ -217,46 +214,15 @@ namespace CalculateurMasque
             label4.TabIndex = 14;
             label4.Text = "ou";
             // 
-            // txtMask1
+            // txtMask
             // 
-            txtMask1.BackColor = Color.LightBlue;
-            txtMask1.BorderStyle = BorderStyle.FixedSingle;
-            txtMask1.Location = new Point(502, 111);
-            txtMask1.MaxLength = 3;
-            txtMask1.Name = "txtMask1";
-            txtMask1.Size = new Size(60, 27);
-            txtMask1.TabIndex = 15;
-            txtMask1.TextAlign = HorizontalAlignment.Center;
-            // 
-            // txtMask2
-            // 
-            txtMask2.BackColor = Color.LightBlue;
-            txtMask2.BorderStyle = BorderStyle.FixedSingle;
-            txtMask2.Location = new Point(568, 111);
-            txtMask2.Name = "txtMask2";
-            txtMask2.Size = new Size(60, 27);
-            txtMask2.TabIndex = 16;
-            txtMask2.TextAlign = HorizontalAlignment.Center;
-            // 
-            // txtMask3
-            // 
-            txtMask3.BackColor = Color.LightBlue;
-            txtMask3.BorderStyle = BorderStyle.FixedSingle;
-            txtMask3.Location = new Point(634, 111);
-            txtMask3.Name = "txtMask3";
-            txtMask3.Size = new Size(60, 27);
-            txtMask3.TabIndex = 17;
-            txtMask3.TextAlign = HorizontalAlignment.Center;
-            // 
-            // txtMask4
-            // 
-            txtMask4.BackColor = Color.LightBlue;
-            txtMask4.BorderStyle = BorderStyle.FixedSingle;
-            txtMask4.Location = new Point(700, 111);
-            txtMask4.Name = "txtMask4";
-            txtMask4.Size = new Size(60, 27);
-            txtMask4.TabIndex = 18;
-            txtMask4.TextAlign = HorizontalAlignment.Center;
+            txtMask.BackColor = Color.LightBlue;
+            txtMask.BorderStyle = BorderStyle.FixedSingle;
+            txtMask.Location = new Point(497, 111);
+            txtMask.Name = "txtMask";
+            txtMask.Size = new Size(258, 27);
+            txtMask.TabIndex = 18;
+            txtMask.TextAlign = HorizontalAlignment.Center;
             // 
             // btnCalculer
             // 
@@ -683,10 +649,7 @@ namespace CalculateurMasque
             Controls.Add(txtClasse1);
             Controls.Add(label5);
             Controls.Add(btnCalculer);
-            Controls.Add(txtMask4);
-            Controls.Add(txtMask3);
-            Controls.Add(txtMask2);
-            Controls.Add(txtMask1);
+            Controls.Add(txtMask);
             Controls.Add(label4);
             Controls.Add(txtCIDR);
             Controls.Add(label3);
@@ -727,7 +690,7 @@ namespace CalculateurMasque
         private TextBox txtMask1;
         private TextBox txtMask2;
         private TextBox txtMask3;
-        private TextBox txtMask4;
+        private TextBox txtMask;
         private Button btnCalculer;
         private Label label5;
         private TextBox txtClasse1;
