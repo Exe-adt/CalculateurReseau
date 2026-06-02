@@ -77,13 +77,18 @@ namespace CalculateurMasque
             txtNbMachines = new TextBox();
             btnVider = new Button();
             label2 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
             SuspendLayout();
             // 
             // Label1
             // 
             Label1.AutoSize = true;
             Label1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            Label1.Location = new Point(64, 67);
+            Label1.Location = new Point(80, 83);
             Label1.Name = "Label1";
             Label1.Size = new Size(272, 25);
             Label1.TabIndex = 0;
@@ -93,7 +98,7 @@ namespace CalculateurMasque
             // 
             txtOct1.BackColor = SystemColors.ControlLight;
             txtOct1.BorderStyle = BorderStyle.FixedSingle;
-            txtOct1.Location = new Point(64, 95);
+            txtOct1.Location = new Point(80, 111);
             txtOct1.MaxLength = 3;
             txtOct1.Name = "txtOct1";
             txtOct1.Size = new Size(60, 27);
@@ -104,7 +109,7 @@ namespace CalculateurMasque
             // 
             txtOct2.BackColor = SystemColors.ControlLight;
             txtOct2.BorderStyle = BorderStyle.FixedSingle;
-            txtOct2.Location = new Point(130, 95);
+            txtOct2.Location = new Point(146, 111);
             txtOct2.MaxLength = 3;
             txtOct2.Name = "txtOct2";
             txtOct2.Size = new Size(60, 27);
@@ -115,7 +120,7 @@ namespace CalculateurMasque
             // 
             txtOct3.BackColor = SystemColors.ControlLight;
             txtOct3.BorderStyle = BorderStyle.FixedSingle;
-            txtOct3.Location = new Point(196, 95);
+            txtOct3.Location = new Point(212, 111);
             txtOct3.MaxLength = 3;
             txtOct3.Name = "txtOct3";
             txtOct3.Size = new Size(60, 27);
@@ -126,7 +131,7 @@ namespace CalculateurMasque
             // 
             txtOct4.BackColor = SystemColors.ControlLight;
             txtOct4.BorderStyle = BorderStyle.FixedSingle;
-            txtOct4.Location = new Point(262, 95);
+            txtOct4.Location = new Point(278, 111);
             txtOct4.MaxLength = 3;
             txtOct4.Name = "txtOct4";
             txtOct4.Size = new Size(60, 27);
@@ -136,7 +141,7 @@ namespace CalculateurMasque
             // txtBin1
             // 
             txtBin1.BackColor = Color.LightSteelBlue;
-            txtBin1.Location = new Point(153, 750);
+            txtBin1.Location = new Point(247, 830);
             txtBin1.Name = "txtBin1";
             txtBin1.ReadOnly = true;
             txtBin1.Size = new Size(75, 27);
@@ -146,7 +151,7 @@ namespace CalculateurMasque
             // txtBin2
             // 
             txtBin2.BackColor = Color.LightSteelBlue;
-            txtBin2.Location = new Point(238, 750);
+            txtBin2.Location = new Point(332, 830);
             txtBin2.Name = "txtBin2";
             txtBin2.ReadOnly = true;
             txtBin2.Size = new Size(75, 27);
@@ -156,7 +161,7 @@ namespace CalculateurMasque
             // txtBin3
             // 
             txtBin3.BackColor = Color.LightSteelBlue;
-            txtBin3.Location = new Point(323, 750);
+            txtBin3.Location = new Point(417, 830);
             txtBin3.Name = "txtBin3";
             txtBin3.ReadOnly = true;
             txtBin3.Size = new Size(75, 27);
@@ -166,7 +171,7 @@ namespace CalculateurMasque
             // txtBin4
             // 
             txtBin4.BackColor = Color.LightSteelBlue;
-            txtBin4.Location = new Point(408, 750);
+            txtBin4.Location = new Point(502, 830);
             txtBin4.Name = "txtBin4";
             txtBin4.ReadOnly = true;
             txtBin4.Size = new Size(75, 27);
@@ -177,7 +182,7 @@ namespace CalculateurMasque
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label3.Location = new Point(415, 67);
+            label3.Location = new Point(415, 83);
             label3.Name = "label3";
             label3.Size = new Size(277, 25);
             label3.TabIndex = 10;
@@ -187,7 +192,7 @@ namespace CalculateurMasque
             // 
             txtCIDR.BackColor = SystemColors.ControlLight;
             txtCIDR.BorderStyle = BorderStyle.FixedSingle;
-            txtCIDR.Location = new Point(415, 95);
+            txtCIDR.Location = new Point(415, 111);
             txtCIDR.MaxLength = 2;
             txtCIDR.Name = "txtCIDR";
             txtCIDR.Size = new Size(40, 27);
@@ -197,7 +202,7 @@ namespace CalculateurMasque
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(461, 97);
+            label4.Location = new Point(461, 113);
             label4.Name = "label4";
             label4.Size = new Size(34, 25);
             label4.TabIndex = 14;
@@ -207,7 +212,7 @@ namespace CalculateurMasque
             // 
             txtMask1.BackColor = SystemColors.ControlLight;
             txtMask1.BorderStyle = BorderStyle.FixedSingle;
-            txtMask1.Location = new Point(502, 95);
+            txtMask1.Location = new Point(502, 111);
             txtMask1.MaxLength = 3;
             txtMask1.Name = "txtMask1";
             txtMask1.Size = new Size(60, 27);
@@ -218,7 +223,7 @@ namespace CalculateurMasque
             // 
             txtMask2.BackColor = SystemColors.ControlLight;
             txtMask2.BorderStyle = BorderStyle.FixedSingle;
-            txtMask2.Location = new Point(568, 95);
+            txtMask2.Location = new Point(568, 111);
             txtMask2.Name = "txtMask2";
             txtMask2.Size = new Size(60, 27);
             txtMask2.TabIndex = 16;
@@ -228,7 +233,7 @@ namespace CalculateurMasque
             // 
             txtMask3.BackColor = SystemColors.ControlLight;
             txtMask3.BorderStyle = BorderStyle.FixedSingle;
-            txtMask3.Location = new Point(634, 95);
+            txtMask3.Location = new Point(634, 111);
             txtMask3.Name = "txtMask3";
             txtMask3.Size = new Size(60, 27);
             txtMask3.TabIndex = 17;
@@ -238,7 +243,7 @@ namespace CalculateurMasque
             // 
             txtMask4.BackColor = SystemColors.ControlLight;
             txtMask4.BorderStyle = BorderStyle.FixedSingle;
-            txtMask4.Location = new Point(700, 95);
+            txtMask4.Location = new Point(700, 111);
             txtMask4.Name = "txtMask4";
             txtMask4.Size = new Size(60, 27);
             txtMask4.TabIndex = 18;
@@ -248,7 +253,7 @@ namespace CalculateurMasque
             // 
             btnCalculer.BackColor = Color.Silver;
             btnCalculer.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCalculer.Location = new Point(270, 157);
+            btnCalculer.Location = new Point(280, 172);
             btnCalculer.Name = "btnCalculer";
             btnCalculer.Size = new Size(100, 35);
             btnCalculer.TabIndex = 19;
@@ -260,7 +265,7 @@ namespace CalculateurMasque
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label5.Location = new Point(113, 273);
+            label5.Location = new Point(144, 288);
             label5.Name = "label5";
             label5.Size = new Size(84, 25);
             label5.TabIndex = 20;
@@ -270,7 +275,7 @@ namespace CalculateurMasque
             // 
             txtClasse1.BackColor = SystemColors.ControlLight;
             txtClasse1.BorderStyle = BorderStyle.FixedSingle;
-            txtClasse1.Location = new Point(130, 303);
+            txtClasse1.Location = new Point(161, 318);
             txtClasse1.Name = "txtClasse1";
             txtClasse1.ReadOnly = true;
             txtClasse1.Size = new Size(40, 27);
@@ -280,7 +285,7 @@ namespace CalculateurMasque
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label6.Location = new Point(89, 369);
+            label6.Location = new Point(89, 415);
             label6.Name = "label6";
             label6.Size = new Size(114, 25);
             label6.TabIndex = 22;
@@ -290,7 +295,7 @@ namespace CalculateurMasque
             // 
             txtNet1.BackColor = SystemColors.ControlLight;
             txtNet1.BorderStyle = BorderStyle.FixedSingle;
-            txtNet1.Location = new Point(89, 406);
+            txtNet1.Location = new Point(89, 452);
             txtNet1.Name = "txtNet1";
             txtNet1.ReadOnly = true;
             txtNet1.Size = new Size(60, 27);
@@ -300,7 +305,7 @@ namespace CalculateurMasque
             // 
             txtNet2.BackColor = SystemColors.ControlLight;
             txtNet2.BorderStyle = BorderStyle.FixedSingle;
-            txtNet2.Location = new Point(155, 406);
+            txtNet2.Location = new Point(155, 452);
             txtNet2.Name = "txtNet2";
             txtNet2.ReadOnly = true;
             txtNet2.Size = new Size(60, 27);
@@ -310,7 +315,7 @@ namespace CalculateurMasque
             // 
             txtNet3.BackColor = SystemColors.ControlLight;
             txtNet3.BorderStyle = BorderStyle.FixedSingle;
-            txtNet3.Location = new Point(221, 406);
+            txtNet3.Location = new Point(221, 452);
             txtNet3.Name = "txtNet3";
             txtNet3.ReadOnly = true;
             txtNet3.Size = new Size(60, 27);
@@ -320,7 +325,7 @@ namespace CalculateurMasque
             // 
             txtNet4.BackColor = SystemColors.ControlLight;
             txtNet4.BorderStyle = BorderStyle.FixedSingle;
-            txtNet4.Location = new Point(288, 406);
+            txtNet4.Location = new Point(288, 452);
             txtNet4.Name = "txtNet4";
             txtNet4.ReadOnly = true;
             txtNet4.Size = new Size(60, 27);
@@ -330,7 +335,7 @@ namespace CalculateurMasque
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label7.Location = new Point(461, 369);
+            label7.Location = new Point(461, 415);
             label7.Name = "label7";
             label7.Size = new Size(164, 25);
             label7.TabIndex = 27;
@@ -340,7 +345,7 @@ namespace CalculateurMasque
             // 
             txtBcast1.BackColor = SystemColors.ControlLight;
             txtBcast1.BorderStyle = BorderStyle.FixedSingle;
-            txtBcast1.Location = new Point(465, 406);
+            txtBcast1.Location = new Point(465, 452);
             txtBcast1.Name = "txtBcast1";
             txtBcast1.ReadOnly = true;
             txtBcast1.Size = new Size(60, 27);
@@ -350,7 +355,7 @@ namespace CalculateurMasque
             // 
             txtBcast2.BackColor = SystemColors.ControlLight;
             txtBcast2.BorderStyle = BorderStyle.FixedSingle;
-            txtBcast2.Location = new Point(531, 406);
+            txtBcast2.Location = new Point(531, 452);
             txtBcast2.Name = "txtBcast2";
             txtBcast2.ReadOnly = true;
             txtBcast2.Size = new Size(60, 27);
@@ -360,7 +365,7 @@ namespace CalculateurMasque
             // 
             txtBcast3.BackColor = SystemColors.ControlLight;
             txtBcast3.BorderStyle = BorderStyle.FixedSingle;
-            txtBcast3.Location = new Point(597, 406);
+            txtBcast3.Location = new Point(597, 452);
             txtBcast3.Name = "txtBcast3";
             txtBcast3.ReadOnly = true;
             txtBcast3.Size = new Size(60, 27);
@@ -370,7 +375,7 @@ namespace CalculateurMasque
             // 
             txtBcast4.BackColor = SystemColors.ControlLight;
             txtBcast4.BorderStyle = BorderStyle.FixedSingle;
-            txtBcast4.Location = new Point(663, 406);
+            txtBcast4.Location = new Point(663, 452);
             txtBcast4.Name = "txtBcast4";
             txtBcast4.ReadOnly = true;
             txtBcast4.Size = new Size(60, 27);
@@ -380,7 +385,7 @@ namespace CalculateurMasque
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label8.Location = new Point(89, 459);
+            label8.Location = new Point(89, 497);
             label8.Name = "label8";
             label8.Size = new Size(109, 25);
             label8.TabIndex = 32;
@@ -390,7 +395,7 @@ namespace CalculateurMasque
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label9.Location = new Point(461, 459);
+            label9.Location = new Point(461, 497);
             label9.Name = "label9";
             label9.Size = new Size(106, 25);
             label9.TabIndex = 33;
@@ -400,7 +405,7 @@ namespace CalculateurMasque
             // 
             txtPre1.BackColor = SystemColors.ControlLight;
             txtPre1.BorderStyle = BorderStyle.FixedSingle;
-            txtPre1.Location = new Point(89, 498);
+            txtPre1.Location = new Point(89, 536);
             txtPre1.Name = "txtPre1";
             txtPre1.ReadOnly = true;
             txtPre1.Size = new Size(60, 27);
@@ -410,7 +415,7 @@ namespace CalculateurMasque
             // 
             txtPre2.BackColor = SystemColors.ControlLight;
             txtPre2.BorderStyle = BorderStyle.FixedSingle;
-            txtPre2.Location = new Point(159, 498);
+            txtPre2.Location = new Point(159, 536);
             txtPre2.Name = "txtPre2";
             txtPre2.ReadOnly = true;
             txtPre2.Size = new Size(60, 27);
@@ -420,7 +425,7 @@ namespace CalculateurMasque
             // 
             txtPre3.BackColor = SystemColors.ControlLight;
             txtPre3.BorderStyle = BorderStyle.FixedSingle;
-            txtPre3.Location = new Point(229, 498);
+            txtPre3.Location = new Point(229, 536);
             txtPre3.Name = "txtPre3";
             txtPre3.ReadOnly = true;
             txtPre3.Size = new Size(60, 27);
@@ -430,7 +435,7 @@ namespace CalculateurMasque
             // 
             txtPre4.BackColor = SystemColors.ControlLight;
             txtPre4.BorderStyle = BorderStyle.FixedSingle;
-            txtPre4.Location = new Point(299, 498);
+            txtPre4.Location = new Point(299, 536);
             txtPre4.Name = "txtPre4";
             txtPre4.ReadOnly = true;
             txtPre4.Size = new Size(60, 27);
@@ -440,7 +445,7 @@ namespace CalculateurMasque
             // 
             txtDer1.BackColor = SystemColors.ControlLight;
             txtDer1.BorderStyle = BorderStyle.FixedSingle;
-            txtDer1.Location = new Point(465, 498);
+            txtDer1.Location = new Point(465, 536);
             txtDer1.Name = "txtDer1";
             txtDer1.ReadOnly = true;
             txtDer1.Size = new Size(60, 27);
@@ -450,7 +455,7 @@ namespace CalculateurMasque
             // 
             txtDer2.BackColor = SystemColors.ControlLight;
             txtDer2.BorderStyle = BorderStyle.FixedSingle;
-            txtDer2.Location = new Point(531, 498);
+            txtDer2.Location = new Point(531, 536);
             txtDer2.Name = "txtDer2";
             txtDer2.ReadOnly = true;
             txtDer2.Size = new Size(60, 27);
@@ -460,7 +465,7 @@ namespace CalculateurMasque
             // 
             txtDer3.BackColor = SystemColors.ControlLight;
             txtDer3.BorderStyle = BorderStyle.FixedSingle;
-            txtDer3.Location = new Point(597, 498);
+            txtDer3.Location = new Point(597, 536);
             txtDer3.Name = "txtDer3";
             txtDer3.ReadOnly = true;
             txtDer3.Size = new Size(60, 27);
@@ -470,7 +475,7 @@ namespace CalculateurMasque
             // 
             txtDer4.BackColor = SystemColors.ControlLight;
             txtDer4.BorderStyle = BorderStyle.FixedSingle;
-            txtDer4.Location = new Point(663, 498);
+            txtDer4.Location = new Point(663, 536);
             txtDer4.Name = "txtDer4";
             txtDer4.ReadOnly = true;
             txtDer4.Size = new Size(60, 27);
@@ -488,7 +493,7 @@ namespace CalculateurMasque
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label11.Location = new Point(41, 666);
+            label11.Location = new Point(156, 667);
             label11.Name = "label11";
             label11.Size = new Size(66, 25);
             label11.TabIndex = 43;
@@ -498,7 +503,7 @@ namespace CalculateurMasque
             // 
             txtNbIP.BackColor = SystemColors.ControlLight;
             txtNbIP.BorderStyle = BorderStyle.FixedSingle;
-            txtNbIP.Location = new Point(113, 664);
+            txtNbIP.Location = new Point(228, 665);
             txtNbIP.Name = "txtNbIP";
             txtNbIP.ReadOnly = true;
             txtNbIP.Size = new Size(60, 27);
@@ -508,7 +513,7 @@ namespace CalculateurMasque
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(375, 663);
+            label12.Location = new Point(485, 667);
             label12.Name = "label12";
             label12.Size = new Size(120, 25);
             label12.TabIndex = 45;
@@ -518,7 +523,7 @@ namespace CalculateurMasque
             // 
             txtNbMachines.BackColor = SystemColors.ControlLight;
             txtNbMachines.BorderStyle = BorderStyle.FixedSingle;
-            txtNbMachines.Location = new Point(547, 664);
+            txtNbMachines.Location = new Point(611, 667);
             txtNbMachines.Name = "txtNbMachines";
             txtNbMachines.ReadOnly = true;
             txtNbMachines.Size = new Size(60, 27);
@@ -527,7 +532,7 @@ namespace CalculateurMasque
             // btnVider
             // 
             btnVider.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVider.Location = new Point(415, 158);
+            btnVider.Location = new Point(451, 172);
             btnVider.Name = "btnVider";
             btnVider.Size = new Size(100, 35);
             btnVider.TabIndex = 47;
@@ -539,11 +544,63 @@ namespace CalculateurMasque
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold);
-            label2.Location = new Point(262, 20);
+            label2.Location = new Point(280, 22);
             label2.Name = "label2";
             label2.Size = new Size(245, 31);
             label2.TabIndex = 48;
             label2.Text = "Calculteur de Masque";
+            // 
+            // label13
+            // 
+            label13.BorderStyle = BorderStyle.FixedSingle;
+            label13.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label13.Location = new Point(48, 244);
+            label13.Name = "label13";
+            label13.Size = new Size(700, 30);
+            label13.TabIndex = 49;
+            label13.Text = "Resultat";
+            // 
+            // label14
+            // 
+            label14.BorderStyle = BorderStyle.FixedSingle;
+            label14.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label14.Location = new Point(48, 368);
+            label14.Name = "label14";
+            label14.Size = new Size(700, 30);
+            label14.TabIndex = 50;
+            label14.Text = "Réseau";
+            // 
+            // label15
+            // 
+            label15.BorderStyle = BorderStyle.FixedSingle;
+            label15.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label15.Location = new Point(48, 594);
+            label15.Name = "label15";
+            label15.Size = new Size(700, 30);
+            label15.TabIndex = 51;
+            label15.Text = "Réseau";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label16.Location = new Point(336, 288);
+            label16.Name = "label16";
+            label16.Size = new Size(135, 25);
+            label16.TabIndex = 52;
+            label16.Text = "Masque (CIDR)";
+            label16.Click += label16_Click;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label17.Location = new Point(556, 288);
+            label17.Name = "label17";
+            label17.Size = new Size(153, 25);
+            label17.TabIndex = 53;
+            label17.Text = "Masque (Binaire)";
+            label17.Click += label17_Click;
             // 
             // Form1
             // 
@@ -551,6 +608,11 @@ namespace CalculateurMasque
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLight;
             ClientSize = new Size(795, 869);
+            Controls.Add(label17);
+            Controls.Add(label16);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(label13);
             Controls.Add(label2);
             Controls.Add(btnVider);
             Controls.Add(txtNbMachines);
@@ -602,6 +664,7 @@ namespace CalculateurMasque
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Calculateur de Masque Réseau";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -659,5 +722,10 @@ namespace CalculateurMasque
         private TextBox txtNbMachines;
         private Button btnVider;
         private Label label2;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
     }
 }
