@@ -50,9 +50,9 @@ namespace CalculateurMasque
 
         private void ConvertirEnBinaire()
         {
-            TextBox[] octetsDec = {txtOct1, txtOct2, txtOct3, txtOct4};
+            TextBox[] octetsDec = { txtOct1, txtOct2, txtOct3, txtOct4 };
 
-            TextBox[] octetsBin = {txtBin1, txtBin2, txtBin3, txtBin4};
+            TextBox[] octetsBin = { txtBin1, txtBin2, txtBin3, txtBin4 };
 
             for (int i = 0; i < 4; i++)
             {
@@ -79,7 +79,7 @@ namespace CalculateurMasque
         {
             ip = new int[4];
 
-            TextBox[] champs = {txtOct1, txtOct2, txtOct3, txtOct4};
+            TextBox[] champs = { txtOct1, txtOct2, txtOct3, txtOct4 };
 
             for (int i = 0; i < 4; i++)
             {
@@ -126,7 +126,7 @@ namespace CalculateurMasque
         {
             masque = new int[4];
 
-            TextBox[] champs = {txtMask1, txtMask2, txtMask3, txtMask4};
+            TextBox[] champs = { txtMask1, txtMask2, txtMask3, txtMask4 };
 
             for (int i = 0; i < 4; i++)
             {
@@ -237,6 +237,16 @@ namespace CalculateurMasque
         }
 
         private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBin4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
