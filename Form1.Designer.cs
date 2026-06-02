@@ -675,10 +675,6 @@ namespace CalculateurMasque
         private TextBox txtOct3;
         private TextBox txtOct4;
 
-        private string GetDebuggerDisplay()
-        {
-            return ToString();
-        }
         private TextBox txtBin1;
         private TextBox txtBin2;
         private TextBox txtBin3;
