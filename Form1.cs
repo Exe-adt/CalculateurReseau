@@ -147,9 +147,11 @@ namespace CalculateurMasque
 
             string classe = calc.DeterminerClasse(ip[0]);
             int cidrDefaut = calc.MasqueParDefaut(classe);
+            string type = calc.TypeAdresse(ip[0], ip[1]);
 
             miseAJourAutomatique = true;
             txtCIDR.Text = cidrDefaut.ToString();
+            txtType.Text = type;
             miseAJourAutomatique = false;
 
             return VerifCIDR(out masque);
@@ -216,6 +218,7 @@ namespace CalculateurMasque
             int cidr = calc.MasqueVersCIDR(masque);
 
             string classe = calc.DeterminerClasse(ip[0]);
+            string type = calc.TypeAdresse(ip[0], ip[1]);
 
             int[] reseau = calc.CalculerAdresseReseau(ip, masque);
             int[] broadcast = calc.CalculerBroadcast(reseau, masque);
@@ -223,6 +226,7 @@ namespace CalculateurMasque
             var (nbIP, nbMachines) = calc.CalculerNombre(cidr);
 
             txtClasse1.Text = classe;
+            txtType.Text = type;
             txtClasse1.BackColor = CouleurClasse(classe);
 
             AfficherAdresse(txtNet, reseau);
@@ -279,11 +283,12 @@ namespace CalculateurMasque
                 "B" => Color.LightBlue,
                 "C" => Color.LightYellow,
                 "D" => Color.Orange,
+                "L" => Color.Violet,
                 _ => Color.LightCoral
             };
         }
 
         
-        }
+    }
 
 }

@@ -62,7 +62,7 @@ namespace CalculateurMasque
 
         public string DeterminerClasse(int premierOctet)
         {
-            if (premierOctet >= 1 && premierOctet <= 126)
+            if (premierOctet >= 1 && premierOctet <= 127)
                 return "A";
 
             if (premierOctet >= 128 && premierOctet <= 191)
@@ -82,7 +82,7 @@ namespace CalculateurMasque
             if (classe == "A") return 8;
             if (classe == "B") return 16;
             if (classe == "C") return 24;
-            return -1;
+            return 24;
 
         }
 
@@ -161,5 +161,33 @@ namespace CalculateurMasque
 
             return (nbIP, nbMachines);
         }
+
+        public string TypeAdresse(int o1, int o2)
+        {
+            if (o1 == 10)
+                return "Privée (non routable)";
+
+            if (o1 == 172 && o2 >= 16 && o2 <= 31)
+                return "Privée (non routable)";
+
+            if (o1 == 192 && o2 == 168)
+                return "Privée (non routable)";
+
+            if (o1 == 127)
+                return "Loopback";
+
+            if (o1 == 169 && o2 == 254)
+                return "APIPA";
+
+            if (o1 >= 224 && o1 <= 239)
+                return "Multicast";
+
+            if (o1 >= 240)
+                return "Expérimental";
+
+            return "Publique (routable)";
+        }
+
+
     }
 }

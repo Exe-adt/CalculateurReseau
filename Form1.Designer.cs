@@ -62,6 +62,8 @@ namespace CalculateurMasque
             label18 = new Label();
             txtMaskBin = new TextBox();
             txtPremier = new TextBox();
+            txtType = new TextBox();
+            label16 = new Label();
             SuspendLayout();
             // 
             // Label1
@@ -166,10 +168,10 @@ namespace CalculateurMasque
             // 
             txtClasse1.BackColor = SystemColors.ControlLight;
             txtClasse1.BorderStyle = BorderStyle.FixedSingle;
-            txtClasse1.Location = new Point(689, 327);
+            txtClasse1.Location = new Point(685, 327);
             txtClasse1.Name = "txtClasse1";
             txtClasse1.ReadOnly = true;
-            txtClasse1.Size = new Size(40, 27);
+            txtClasse1.Size = new Size(44, 27);
             txtClasse1.TabIndex = 21;
             txtClasse1.TextAlign = HorizontalAlignment.Center;
             // 
@@ -198,7 +200,7 @@ namespace CalculateurMasque
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label7.Location = new Point(461, 435);
+            label7.Location = new Point(331, 435);
             label7.Name = "label7";
             label7.Size = new Size(164, 25);
             label7.TabIndex = 27;
@@ -208,7 +210,7 @@ namespace CalculateurMasque
             // 
             txtBcast.BackColor = SystemColors.ControlLight;
             txtBcast.BorderStyle = BorderStyle.FixedSingle;
-            txtBcast.Location = new Point(461, 463);
+            txtBcast.Location = new Point(331, 463);
             txtBcast.Name = "txtBcast";
             txtBcast.ReadOnly = true;
             txtBcast.Size = new Size(188, 27);
@@ -229,7 +231,7 @@ namespace CalculateurMasque
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            label9.Location = new Point(461, 517);
+            label9.Location = new Point(331, 517);
             label9.Name = "label9";
             label9.Size = new Size(106, 25);
             label9.TabIndex = 33;
@@ -239,7 +241,7 @@ namespace CalculateurMasque
             // 
             txtDernier.BackColor = SystemColors.ControlLight;
             txtDernier.BorderStyle = BorderStyle.FixedSingle;
-            txtDernier.Location = new Point(461, 546);
+            txtDernier.Location = new Point(331, 546);
             txtDernier.Name = "txtDernier";
             txtDernier.ReadOnly = true;
             txtDernier.Size = new Size(188, 27);
@@ -394,12 +396,35 @@ namespace CalculateurMasque
             txtPremier.TabIndex = 56;
             txtPremier.TextAlign = HorizontalAlignment.Center;
             // 
+            // txtType
+            // 
+            txtType.BackColor = SystemColors.ControlLight;
+            txtType.BorderStyle = BorderStyle.FixedSingle;
+            txtType.Location = new Point(541, 463);
+            txtType.Name = "txtType";
+            txtType.ReadOnly = true;
+            txtType.Size = new Size(188, 27);
+            txtType.TabIndex = 57;
+            txtType.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label16.Location = new Point(543, 435);
+            label16.Name = "label16";
+            label16.Size = new Size(138, 25);
+            label16.TabIndex = 58;
+            label16.Text = "Type d'Adresse";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(795, 809);
+            Controls.Add(label16);
+            Controls.Add(txtType);
             Controls.Add(txtPremier);
             Controls.Add(txtMaskBin);
             Controls.Add(label18);
@@ -473,5 +498,7 @@ namespace CalculateurMasque
         private Label label18;
         private TextBox txtMaskBin;
         private TextBox txtPremier;
+        private TextBox txtType;
+        private Label label16;
     }
 }
