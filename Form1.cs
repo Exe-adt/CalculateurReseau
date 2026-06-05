@@ -130,28 +130,25 @@ namespace CalculateurMasque
             return true;
         }
 
-
-
         private bool VerifMasque(out int[] masque)
         {
             masque = new int[4];
 
-            if (txtCIDR.Text != "" && txtCIDR.Text != " ")
+            if (!string.IsNullOrWhiteSpace(txtCIDR.Text))
                 return VerifCIDR(out masque);
 
-            if (txtMask.Text != "")
+            if (!string.IsNullOrEmpty(txtMask.Text))
                 return VerifMasqueStandard(out masque);
 
-            if (!VerifIP(out int[] ip))
-                return false;
+            //masque par défaut selon classe
+            if (!VerifIP(out int[] ip)) return false;
 
             string classe = calc.DeterminerClasse(ip[0]);
             int cidrDefaut = calc.MasqueParDefaut(classe);
-            string type = calc.TypeAdresse(ip[0], ip[1]);
 
             miseAJourAutomatique = true;
             txtCIDR.Text = cidrDefaut.ToString();
-            txtType.Text = type;
+            txtType.Text = calc.TypeAdresse(ip[0], ip[1]);
             miseAJourAutomatique = false;
 
             return VerifCIDR(out masque);
@@ -283,7 +280,6 @@ namespace CalculateurMasque
                 "B" => Color.LightBlue,
                 "C" => Color.LightYellow,
                 "D" => Color.Orange,
-                "L" => Color.Violet,
                 _ => Color.LightCoral
             };
         }

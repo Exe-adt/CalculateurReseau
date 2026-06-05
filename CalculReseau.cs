@@ -82,7 +82,7 @@ namespace CalculateurMasque
             if (classe == "A") return 8;
             if (classe == "B") return 16;
             if (classe == "C") return 24;
-            return 24;
+            return 24; // Les deux dernières classes tombent sur 24 volontairement
 
         }
 
