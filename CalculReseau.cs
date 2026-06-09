@@ -29,7 +29,7 @@ namespace CalculateurMasque
                 }
                 else
                     masque[i] = 0;
-                }
+            }
 
             return masque;
         }
@@ -41,7 +41,7 @@ namespace CalculateurMasque
 
             foreach (int octet in masque)
             {
-                string binaire = Convert.ToString(octet, 2).PadLeft(8, '0');
+                string binaire = DecimalVersBinaire(octet);
 
                 foreach (char bit in binaire)
                 {
@@ -51,10 +51,10 @@ namespace CalculateurMasque
                             return -1;
 
                         cidr++;
-                }
+                    }
                     else
                         zeroTrouve = true;
-            }
+                }
             }
 
             return cidr;
@@ -82,8 +82,7 @@ namespace CalculateurMasque
             if (classe == "A") return 8;
             if (classe == "B") return 16;
             if (classe == "C") return 24;
-            return 24; // Les deux dernières classes tombent sur 24 volontairement
-
+            return 24;
         }
 
         public int[] CalculerAdresseReseau(int[] ip, int[] masque)
@@ -121,14 +120,14 @@ namespace CalculateurMasque
             int[] resultat = (int[])ip.Clone();
 
             for (int i = 3; i >= 0; i--)
-        {
+            {
                 resultat[i]++;
 
                 if (resultat[i] <= 255)
                     break;
 
                 resultat[i] = 0;
-        }
+            }
 
             return resultat;
         }
