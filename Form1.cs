@@ -169,8 +169,9 @@ namespace CalculateurMasque
                 return false;
             }
 
-            // Détection de la classe pour l'avertissement pédagogique
+            
             string[] bouts = txtIP.Text.Split('.');
+
             if (bouts.Length == 4 && int.TryParse(bouts[0], out int o1))
             {
                 string classe = calc.DeterminerClasse(o1);
@@ -178,7 +179,7 @@ namespace CalculateurMasque
                 if (classe == "A" && cidr < 8)
                 {
                     MessageBox.Show(
-                        "Note : Historiquement, une classe C utilise un masque /24. " +
+                        "Note : Historiquement, une classe A utilise un masque /8. " +
                         "Cependant, en CIDR moderne, un masque plus petit reste valide.",
                         "Information",
                         MessageBoxButtons.OK,
