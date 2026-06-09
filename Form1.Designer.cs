@@ -70,7 +70,7 @@ namespace CalculateurMasque
             // 
             Label1.AutoSize = true;
             Label1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            Label1.Location = new Point(80, 83);
+            Label1.Location = new Point(103, 83);
             Label1.Name = "Label1";
             Label1.Size = new Size(182, 25);
             Label1.TabIndex = 0;
@@ -80,7 +80,7 @@ namespace CalculateurMasque
             // 
             txtIP.BackColor = Color.LightBlue;
             txtIP.BorderStyle = BorderStyle.FixedSingle;
-            txtIP.Location = new Point(80, 111);
+            txtIP.Location = new Point(103, 111);
             txtIP.MaxLength = 15;
             txtIP.Name = "txtIP";
             txtIP.Size = new Size(182, 27);
@@ -146,7 +146,7 @@ namespace CalculateurMasque
             // 
             btnCalculer.BackColor = Color.LightSteelBlue;
             btnCalculer.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCalculer.Location = new Point(280, 185);
+            btnCalculer.Location = new Point(234, 185);
             btnCalculer.Name = "btnCalculer";
             btnCalculer.Size = new Size(100, 35);
             btnCalculer.TabIndex = 19;
@@ -302,7 +302,7 @@ namespace CalculateurMasque
             // 
             btnVider.BackColor = SystemColors.ActiveBorder;
             btnVider.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVider.Location = new Point(451, 185);
+            btnVider.Location = new Point(425, 185);
             btnVider.Name = "btnVider";
             btnVider.Size = new Size(100, 35);
             btnVider.TabIndex = 47;

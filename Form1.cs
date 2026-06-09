@@ -30,7 +30,10 @@ namespace CalculateurMasque
                     string classe = calc.DeterminerClasse(premierOctet);
 
                     miseAJourAutomatique = true;
-                    txtCIDR.Text = calc.MasqueParDefaut(classe).ToString();
+                    int cidrDefaut = calc.MasqueParDefaut(classe);
+                    txtCIDR.Text = cidrDefaut.ToString();
+                    int[] masqueDefaut = calc.CIDRVersMasque(cidrDefaut);
+                    RemplirChampsMasque(masqueDefaut);
                     miseAJourAutomatique = false;
                 }
             }
