@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace CalculateurMasque
 {
@@ -163,17 +164,56 @@ namespace CalculateurMasque
 
             if (!int.TryParse(txtCIDR.Text, out int cidr) || cidr < 0 || cidr > 32)
             {
-                MessageBox.Show("CIDR invalide.\nValeur attendue entre 0 et 32.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                MessageBox.Show("CIDR invalide.\nValeur attendue entre 0 et 32.",
+                                "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            miseAJourAutomatique = true;
-            masque = calc.CIDRVersMasque(cidr);
-            RemplirChampsMasque(masque);
-            miseAJourAutomatique = false;
 
+            
+            string[] bouts = txtIP.Text.Split('.');
+
+            if (bouts.Length == 4 && int.TryParse(bouts[0], out int o1))
+            {
+                string classe = calc.DeterminerClasse(o1);
+
+                if (classe == "A" && cidr < 8)
+                {
+                    MessageBox.Show(
+                        "Note : Historiquement, une classe A utilise un masque /8. " +
+                        "Cependant, en CIDR moderne, un masque plus petit reste valide.",
+                        "Information",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+
+                if (classe == "B" && cidr < 16)
+                {
+                    MessageBox.Show(
+                        "Note : Historiquement, une classe B utilise un masque /16. " +
+                        "Cependant, en CIDR moderne, un masque plus petit reste valide.",
+                        "Information",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+
+                if (classe == "C" && cidr < 24)
+                {
+                    MessageBox.Show(
+                        "Note : Historiquement, une classe C utilise un masque /24. " +
+                        "Cependant, en CIDR moderne, un masque plus petit reste valide.",
+                        "Information",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+            }
+
+            masque = calc.CIDRVersMasque(cidr);
             return true;
         }
+
 
         private bool VerifMasqueStandard(out int[] masque)
         {
