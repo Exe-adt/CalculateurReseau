@@ -62,7 +62,7 @@ namespace CalculateurMasque
 
         public string DeterminerClasse(int premierOctet)
         {
-            if (premierOctet >= 1 && premierOctet <= 127)
+            if (premierOctet >= 0 && premierOctet <= 127)
                 return "A";
 
             if (premierOctet >= 128 && premierOctet <= 191)
@@ -164,6 +164,9 @@ namespace CalculateurMasque
 
         public string TypeAdresse(int o1, int o2)
         {
+            if (o1 == 0)
+                return "Spéciale (non routable)";
+
             if (o1 == 10)
                 return "Privée (non routable)";
 
@@ -187,7 +190,5 @@ namespace CalculateurMasque
 
             return "Publique (routable)";
         }
-
-
     }
 }
